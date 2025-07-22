@@ -1,0 +1,317 @@
+/* Clean Modern Prayer Dashboard - Perfect for Screen Display */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-primary: #0f0f23;
+  --bg-secondary: #1a1a2e;
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8d1;
+  --accent-color: #05eebf;
+  --accent-secondary: #ff6b6b;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--text-primary);
+  overflow: hidden;
+  user-select: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#clock {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+#date {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+#hijri {
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  font-weight: 400;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+/* Main Content */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#weather {
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+#weather img {
+  width: clamp(24px, 3vw, 32px);
+  height: clamp(24px, 3vw, 32px);
+}
+
+#countdown {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 500;
+  color: var(--accent-color);
+  text-align: center;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+/* Prayer Times Grid */
+#prayers {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  width: auto;
+  max-width: 900px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  flex-wrap: nowrap;
+}
+
+.prayer-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  background: rgba(15, 15, 35, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(15px);
+  transition: all 0.3s ease;
+  min-width: 140px;
+  max-width: 160px;
+}
+
+.prayer-line:hover {
+  background: rgba(15, 15, 35, 0.95);
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.prayer-name-en {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+
+.prayer-name-ar {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.8rem;
+  opacity: 0.7;
+}
+
+.prayer-time {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Next Prayer Animation */
+.prayer-line[style*="bold"] {
+  animation: nextPrayerZoom 2s ease-in-out infinite;
+  background: rgba(5, 238, 191, 0.15);
+  border-color: rgba(5, 238, 191, 0.3);
+}
+
+.prayer-line[style*="bold"] .prayer-name-en,
+.prayer-line[style*="bold"] .prayer-time {
+  color: var(--accent-color);
+}
+
+.prayer-line[style*="bold"] .prayer-name-ar {
+  color: rgba(5, 238, 191, 0.8);
+}
+
+@keyframes nextPrayerZoom {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 4px 20px rgba(5, 238, 191, 0.2);
+  }
+  50% { 
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(5, 238, 191, 0.4);
+  }
+}
+
+/* Next Prayer Highlight */
+
+
+.prayer-line[style*="bold"] .prayer-name-en,
+.prayer-line[style*="bold"] .prayer-time {
+  color: var(--accent-color);
+}
+
+.prayer-line[style*="bold"] .prayer-name-ar {
+  color: rgba(0, 212, 170, 0.8);
+}
+
+/* Location Settings */
+#location-settings {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--text-primary);
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#location-settings:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.05);
+}
+
+/* Hide location settings in fullscreen */
+body:fullscreen #location-settings,
+body:-webkit-full-screen #location-settings,
+body:-moz-full-screen #location-settings {
+  display: none;
+}
+
+/* Status Classes */
+.loading {
+  opacity: 0.6;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+}
+
+.error {
+  color: var(--accent-secondary);
+}
+
+.success {
+  color: var(--accent-color);
+}
+
+.urgent-countdown {
+  color: #ffd700 !important;
+  animation: urgentPulse 1s infinite;
+}
+
+@keyframes urgentPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  #prayers {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .prayer-line {
+    padding: 1rem;
+  }
+  
+  #location-settings {
+    top: 1rem;
+    right: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+  
+  #prayers {
+    padding: 1rem;
+  }
+}
+
+/* Fullscreen Optimizations */
+:fullscreen {
+  padding: 3rem;
+}
+
+:fullscreen #clock {
+  font-size: clamp(6rem, 15vw, 12rem);
+}
+
+/* Smooth Transitions */
+* {
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+/* Hide scrollbars */
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
