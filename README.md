@@ -14,6 +14,7 @@ clock/
 ├── assets/
 │   ├── adhan.mp3       # Prayer call audio
 │   └── background.jpg  # Background image
+│   └── favicon.ico  # favicon image
 └── README.md
 ```
 
