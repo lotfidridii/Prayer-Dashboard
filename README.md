@@ -14,7 +14,7 @@ clock/
 ├── assets/
 │   ├── adhan.mp3       # Prayer call audio
 │   └── background.jpg  # Background image
-└── README.md           # This file
+└── README.md
 ```
 
 ## 🚀 Features
